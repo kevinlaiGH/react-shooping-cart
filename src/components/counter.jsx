@@ -6,6 +6,10 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"]
   };
 
+  handleIncrement = haha => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
   renderTags() {
     if (this.state.tags.length === 0) return <p>ZERO TAGS</p>;
     return (
@@ -23,7 +27,12 @@ class Counter extends Component {
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={haha => this.handleIncrement(haha)}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         {this.state.tags.length === 3 && <p>THERE ARE 3 TAGS</p>}
         {this.renderTags()}
       </React.Fragment>
